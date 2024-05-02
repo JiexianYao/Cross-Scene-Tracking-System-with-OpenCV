@@ -263,6 +263,7 @@ class Ui_MainWindow(object):
                                             org=camera.draw_text_postion,
                                             fontFace=camera.font_draw_number,
                                             fontScale=1, color=(255, 255, 255), thickness=2)
+            camera.tmp_im1 = output_image_frame
             output_image_frame = cv2.cvtColor(output_image_frame, cv2.COLOR_BGR2RGB)
             im2 = algorithm.algo_switch.check_active_algo(im2)
             camera.tmp_im2 = im2

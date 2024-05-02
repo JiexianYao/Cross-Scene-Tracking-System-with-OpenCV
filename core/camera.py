@@ -64,10 +64,9 @@ class camera():
     capture2 = cv2.VideoCapture(0)
 
     # 设置临时帧变量，用于保存视频
-    tmp_im:np
-    tmp_im2 = np.zeros((480, 640, 3), dtype=np.uint8)
+    tmp_im1:np
+    tmp_im2:np
 
     # 视频录制相关变量
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # 用于保存视频编码的四字参数
-    result = cv2.VideoWriter("tmp_data/savedVideo.avi", fourcc, 24, (960, 540), True)  # 保存录像带文件格式
-    frame_interval = 1 / 24
+    result = cv2.VideoWriter("tmp_data/recoredVideo.avi", fourcc, 24, (960, 540), True)  # 保存录像带文件格式

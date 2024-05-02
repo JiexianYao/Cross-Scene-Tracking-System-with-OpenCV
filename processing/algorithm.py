@@ -1,4 +1,4 @@
-# 因该系统需要演示9种算法，所以将此算法独立出来
+# 因该系统需要演示6种预处理算法+1种追踪算法，所以将算法展示模块独立成一个文件
 import cv2
 import numpy as np
 
@@ -93,10 +93,9 @@ class algo_tracking():
                 cv2.circle(frame, (cx, cy), 5, (0, 255, 0), -1)
         return frame
 
-# 用于切换算法的类
-class algo_switch:
-# 定义去噪/灰度/追踪算法字典，用以保存切换算法的状态
-# 初始化算法状态字典
+
+class algo_switch: # 用于切换算法的类
+    # 定义算法状态字典，用以保存记录算法是否处于开启状态
     algorithm_states = {
         "gaussFilter": False,  # 预处理——高斯去噪
         "meanFilter": False,   # 预处理——均值去噪
@@ -109,11 +108,12 @@ class algo_switch:
         # 添加更多的算法...
     }
 
-    # 定义函数映射字典
+    # 函数映射字典
+    # 你可以在这里添加其他函数
     algorithm_functions = {
-        "gaussFilter": algo_filter.gaussFilter, #
+        "gaussFilter": algo_filter.gaussFilter,
         "meanFilter": algo_filter.meanFilter,
-        "medFilter": algo_filter.medFilter,  # 你可以在这里添加其他函数
+        "medFilter": algo_filter.medFilter,  
         "bilatFilter": algo_filter.bilatFilter,
         "floatGray": algo_gray.floatGray,
         "intGray": algo_gray.intGray,

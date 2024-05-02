@@ -18,7 +18,7 @@ def display_video():
             break
         elif key & 0xFF == ord(' '):
             # 保存截图
-            cv2.imwrite('screenshot.jpg', frame)
+            cv2.imwrite('tmp_data/screenshots/shot1.jpg', frame)
             print("截图已保存为 screenshot.jpg")
 
     # 释放资源
