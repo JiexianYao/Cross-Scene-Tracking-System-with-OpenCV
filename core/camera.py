@@ -63,6 +63,7 @@ class camera():
     capture = cv2.VideoCapture(1)
     capture2 = cv2.VideoCapture(0)
 
-    img1:np
-    img2:np
+    # 设置临时帧变量，用于保存视频
+    tmp_im:np
+    tmp_im2:np
    

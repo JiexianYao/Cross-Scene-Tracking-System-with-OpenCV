@@ -123,14 +123,12 @@ class algo_switch:
 
     # 查询一次算法状态字典，看当前是否有算法激活？
     def check_active_algo(frame):
-        print(algo_switch.algorithm_states)
         for algorithm, state in algo_switch.algorithm_states.items():
             # 如果有算法处于激活状态，使用该函数处理图像
             if state:
                 print("check_active_algo已处理")
                 return algo_switch.algorithm_functions[algorithm](frame)
             # 如果没有激活，不操作
-        print("未处理")
         return frame
 
     # 切换算法状态

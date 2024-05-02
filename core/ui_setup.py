@@ -12,9 +12,8 @@ from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QPushButton, Q
 from PySide6.QtCore import QTimer
 import cv2
 from core.camera import camera # 摄像头操作相关函数
-from processing import (detector, tracker, algorithm)
+from processing import (detector, tracker, algorithm, save_video)
 from processing.algorithm import algo_switch
-
 class Ui_MainWindow(object):
     def __init__(self):
         self.centralwidget = None
@@ -112,7 +111,7 @@ class Ui_MainWindow(object):
         self.pushButton42.setObjectName(u"pushButton42")
         self.pushButton42.setGeometry(QRect(800, 800, 160, 120))
         self.pushButton42.setText("保存视频")
-        self.pushButton42.clicked.connect(lambda:algo_switch.switch_algorithm("save_video"))
+        self.pushButton42.clicked.connect(lambda:save_video.save_video.saveVideo())
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)
@@ -267,14 +266,13 @@ class Ui_MainWindow(object):
             output_image_frame = cv2.cvtColor(output_image_frame, cv2.COLOR_BGR2RGB)
             im2 = algorithm.algo_switch.check_active_algo(im2)
             im2 = cv2.cvtColor(im2, cv2.COLOR_BGR2RGB)
-            print("算法激活成功")
+            camera.tmp_im2 = im2
             self.pixmap1 = QImage(output_image_frame, 960, 540, QImage.Format_RGB888)
             self.pixmap1 = QPixmap.fromImage(self.pixmap1)
             self.pixmap2 = QImage(im2, 960, 540, QImage.Format_RGB888)
             self.pixmap2 = QPixmap.fromImage(self.pixmap2)
             self.label.setPixmap(self.pixmap1)
             self.label_2.setPixmap(self.pixmap2)
-            #print("程序运行时间",time.perf_counter())
 
 
 
