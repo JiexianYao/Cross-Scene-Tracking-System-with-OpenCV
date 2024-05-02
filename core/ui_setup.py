@@ -111,7 +111,7 @@ class Ui_MainWindow(object):
         self.pushButton42.setObjectName(u"pushButton42")
         self.pushButton42.setGeometry(QRect(800, 800, 160, 120))
         self.pushButton42.setText("保存视频")
-        self.pushButton42.clicked.connect(lambda:save_video.save_video.saveVideo())
+        self.pushButton42.clicked.connect(lambda:save_video.video_record())
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)
@@ -265,8 +265,8 @@ class Ui_MainWindow(object):
                                             fontScale=1, color=(255, 255, 255), thickness=2)
             output_image_frame = cv2.cvtColor(output_image_frame, cv2.COLOR_BGR2RGB)
             im2 = algorithm.algo_switch.check_active_algo(im2)
-            im2 = cv2.cvtColor(im2, cv2.COLOR_BGR2RGB)
             camera.tmp_im2 = im2
+            im2 = cv2.cvtColor(im2, cv2.COLOR_BGR2RGB)
             self.pixmap1 = QImage(output_image_frame, 960, 540, QImage.Format_RGB888)
             self.pixmap1 = QPixmap.fromImage(self.pixmap1)
             self.pixmap2 = QImage(im2, 960, 540, QImage.Format_RGB888)
