@@ -33,11 +33,11 @@ class Ui_MainWindow(object):
         # label
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(500, 40, 960, 540))
+        self.label.setGeometry(QRect(200, 40, 960, 540))
         # label_2
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(1200, 40, 960, 540))
+        self.label_2.setGeometry(QRect(1000, 40, 960, 540))
 
         # 开始和暂停按钮
 
@@ -118,7 +118,7 @@ class Ui_MainWindow(object):
         QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"行人跟踪系统", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"跨场景跟踪系统", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"录像暂停中", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"录像暂停中", None))
     # retranslateUi
